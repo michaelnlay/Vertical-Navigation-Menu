@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    /* max-width: 1440px; */
+    /* scroll-behavior: smooth; */
+}
+
+
+
+
+/* 100% heigh view of each section */
+section {
+    height: 100vh;
+    width: 100%;
+    /* align-items: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+
+}
+
+/* Applying scrolling snap effect */ /* <- not yet working, JS functionality won't work with this properties*/
+/* .all_sections {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+    scroll-behavior: smooth;
+}  */
+
+/* After apply css properties for scroll snap type, overflow-y and height -> the child need scroll css properties */
+
+
+section h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+
+}
+
+/* Section background color  */
+.bg-color-white {
+    background-color: white;
+}
+
+.bg-color-lightgray {
+    background-color: lightgray;
+}
+
+/* Section text color */
+.text-color {
+    color: red;
+}
+
+nav {
+    --nav_gap:15px;
+    padding: var(--nav_gap);
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    /* background-color: red; */
+}
+
+.nav-item {
+    /* for dot circle and label to be display flex and center*/
+    align-items: center;
+    /* text-align: center; */
+    display: flex;
+    flex-direction: row-reverse;
+    /* reversing direction to make the navel label first before nav-link (the circle dot)*/
+    margin-bottom: var(--nav_gap);
+}
+
+.nav-link:hover~.nav-label {
+    /* ~ start at nav-link then nav-label  */
+    opacity: 1;
+}
+
+.nav-label {
+    color: black;
+    font-weight: bold;
+    opacity: 0;
+    /* make the label not showing up on the page */
+    transition: opacity 0.1s;
+}
+
+/* create circle dot navigation */
+.nav-link {
+    background: black;
+    border-radius: 50%;
+    /* height: 15px; */
+    height: var(--nav_gap);
+    /* width: 15px; */
+    /* transition: transform 1s; */
+    transition: transform 0.1s;
+
+    width: var(--nav_gap);
+    margin-left: var(--nav_gap);
+    z-index: 1;
+}
+
+nav .container ul li a {
+    text-decoration: none;
+}
+
+nav .container ul li {
+    list-style: none;
+
+}
+
+/* for selected nav link */
+.active {
+    background: red;
+    border-radius: 50%;
+    transform: scale(1.4);
+}
+
+
+/* thin vertical line to connect the dots */
+.vertical-line{
+    background-color: red;
+    width: 5px;
+    /* height: 500px; */
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
